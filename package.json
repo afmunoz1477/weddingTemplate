@@ -8,7 +8,8 @@
         "web": ""
     },
     "scripts": {
-        "start": "node ./bin/www"
+        "start": "node ./bin/www",
+        "build": "npm install | cd app | bower install | pwt"
     },
     "dependencies": {
         "acl": "^0.4.9",
