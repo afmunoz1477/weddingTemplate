@@ -145,6 +145,21 @@ html {
     margin-top: 2%;
 }
 
+.tittle-info {
+    text-align: center;
+    font-family: 'Autery';
+    font-size: 30px;
+    margin-top: 2%;
+}
+
+.tittle-info-small {
+    text-align: center;
+    text-align: justify;
+    font-family: 'Autery';
+    font-size: 15px;
+    margin-top: 2%;
+}
+
 .infoBox {
     font-size: 25px;
     font-family: 'Autery';
