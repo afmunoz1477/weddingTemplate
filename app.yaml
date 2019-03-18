@@ -23,8 +23,3 @@ automatic_scaling:
   cpu_utilization:
     target_utilization: 0.5
 # [END runtime]
-
-# Temporary setting to keep gcloud from uploading node_modules
-skip_files:
- - ^node_modules$
- - ^/app/bower_components$
