@@ -1,0 +1,259 @@
+#map {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+/*
+    Carrousel StyleSheet
+*/
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+    width: 450px;
+    height: 600px;
+    margin: auto;
+}
+
+/*
+    Register StyleSheet
+*/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Signika', sans-serif
+}
+
+body,
+html {
+    height: 100%;
+    color: #777;
+    width: auto;
+    line-height: 1.8;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-content: center;
+    position: relative;
+
+}
+
+.disable {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.iconos-servicios {
+    width: 60%;
+}
+
+.fontGeneral {
+    font-family: 'Signika', sans-serif;
+    color: white;
+
+}
+
+.autery {
+    font-family: 'Autery';
+    src: url('./fonts/Autery.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.isabella {
+    font-family: 'Isabella Script';
+    src: url('./fonts/IsabellaScript.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fontGeneralSer {
+    font-family: 'Signika', sans-serif;
+    color: black;
+    font-size: 25px;
+}
+
+.topMenu {
+    height: 15%;
+}
+
+.menuTopBox {
+    height: 30%;
+}
+
+.top {
+    margin-top: 10%;
+    font-size: 40px;
+    font-family: 'Autery';
+    font-weight: 500;
+    text-align: center;
+}
+
+.top-sections {
+    font-size: 40px;
+    font-family: 'Autery';
+    font-weight: 500;
+    text-align: center;
+}
+
+.margin-top-text {
+    margin-top: 5%;
+}
+
+.parragraph {
+    font-size: 25px;
+    font-family: 'Autery';
+    font-weight: 500;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.parragraph-small {
+    font-size: 15px;
+    font-family: 'Autery';
+    font-weight: 500;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.top-small {
+    margin-top: 1%;
+    font-size: 15px;
+    font-family: 'Autery';
+    font-weight: 500;
+}
+
+.top-drop {
+    font-size: 25px;
+    font-family: 'Autery';
+    text-align: center;
+}
+
+.home-page-image {
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.slidesPhoto {
+    width: 100%;
+    align-content: center;
+    display: none;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.tittle-info {
+    text-align: center;
+    font-family: 'Autery';
+    font-size: 30px;
+    margin-top: 2%;
+}
+
+.tittle-info-small {
+    text-align: center;
+    text-align: justify;
+    font-family: 'Autery';
+    font-size: 15px;
+    margin-top: 2%;
+}
+
+.infoBox {
+    font-size: 25px;
+    font-family: 'Autery';
+    font-weight: 500;
+}
+
+.fotoBox {
+    height: 550px;
+    overflow-y: auto;
+}
+
+.fotoBoxS {
+    height: 550px;
+    overflow-y: auto;
+}
+
+.contactText {
+    font-size: 10px
+}
+
+
+.footerFont {
+
+    color: white;
+    font-family: 'Signika', sans-serif;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.footerFontMed {
+
+    color: white;
+    font-family: 'Signika', sans-serif;
+    letter-spacing: 2px;
+    font-size: 10px;
+
+}
+
+.isabella {
+    font-family: 'Conv_Isabella Script', Sans-Serif;
+    width: 800px;
+}
+
+.footerFontS {
+    color: white;
+    font-family: 'Signika', sans-serif;
+    font-size: 6px;
+
+}
+
+/* First image */
+.bgimg-1 {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    background-image: url("../images/background.png");
+    min-height: 80%;
+}
+
+.w3-wide {
+    letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+    cursor: pointer;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("../images/background.png");
+    width: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1 {
+        background-attachment: scroll;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+
+
+}
