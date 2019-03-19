@@ -61,7 +61,7 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
   var marker = new google.maps.Marker({
     position: latlng,
     title: "Nuestro Matrimonio",
-    label: " Dirección"
+    label: "Babi & Charlie"
   });
 
 

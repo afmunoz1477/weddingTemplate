@@ -94,9 +94,18 @@ html {
 
 .top-sections {
     font-size: 40px;
-    font-family: 'Autery';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     text-align: center;
+    background-color: rgb(220, 81, 123);
+}
+
+.top-sections-small {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgb(220, 81, 123);
 }
 
 .margin-top-text {
@@ -104,16 +113,16 @@ html {
 }
 
 .parragraph {
-    font-size: 25px;
-    font-family: 'Autery';
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     width: 70%;
     margin-left: 15%;
 }
 
 .parragraph-small {
-    font-size: 15px;
-    font-family: 'Autery';
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     width: 90%;
     margin-left: 5%;
@@ -147,22 +156,33 @@ html {
 
 .tittle-info {
     text-align: center;
-    font-family: 'Autery';
+    font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     margin-top: 2%;
 }
 
 .tittle-info-small {
     text-align: center;
-    text-align: justify;
-    font-family: 'Autery';
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     margin-top: 2%;
 }
 
+.info-section-small {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+
 .infoBox {
-    font-size: 25px;
-    font-family: 'Autery';
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.infoBox-small {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 
