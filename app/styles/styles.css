@@ -135,6 +135,13 @@ html {
     font-weight: 500;
 }
 
+.top-small-top {
+    margin-top: 1%;
+    font-size: 25px;
+    font-family: 'Autery';
+    font-weight: 500;
+}
+
 .top-drop {
     font-size: 25px;
     font-family: 'Autery';
