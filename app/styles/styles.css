@@ -108,6 +108,10 @@ html {
     background-color: rgb(220, 81, 123);
 }
 
+.but {
+    background-color: rgb(220, 81, 123);
+}
+
 .margin-top-text {
     margin-top: 5%;
 }
@@ -137,8 +141,9 @@ html {
 
 .top-small-top {
     margin-top: 1%;
+    margin-right: 2%;
     font-size: 25px;
-    font-family: 'Autery';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 
@@ -173,6 +178,13 @@ html {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     margin-top: 2%;
+}
+
+.tittle-info-small-x {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    margin-top: 5%;
 }
 
 .info-section-small {
@@ -267,7 +279,7 @@ html {
 
 
 /* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
+/* @media only screen and (max-device-width: 1024px) {
     .bgimg-1 {
         background-attachment: scroll;
     }
@@ -280,7 +292,7 @@ html {
         .sidenav a {
             font-size: 18px;
         }
-    }
+    } */
 
 
 }
