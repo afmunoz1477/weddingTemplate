@@ -3,7 +3,6 @@
 
 var app = angular.module('Babie&Charlie');
 app.controller('homeCtrl', function ($scope, $state, $location, $http) {
-
   $scope.w3_open = function w3_open() {
     var x = document.getElementById("mySidenav");
     var y = document.getElementById("completePage");
@@ -36,7 +35,9 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
   //===================================================CONTACTO====================================================
   $scope.enable = function enable() {
     document.getElementById("boton").style.display = "none";
-    document.getElementById("botonDisable").style.display = "block"
+    document.getElementById("botonDisable").style.display = "block";
+    document.getElementById("botonSmall").style.display = "none";
+    document.getElementById("botonDisableSmall").style.display = "block";
     $("#map").css("opacity", "1");
     $("#map").css("pointer-events", "inherit");
   }
@@ -44,6 +45,8 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
   $scope.disable = function disable() {
     document.getElementById("boton").style.display = "block";
     document.getElementById("botonDisable").style.display = "none";
+    document.getElementById("botonSmall").style.display = "block";
+    document.getElementById("botonDisableSmall").style.display = "none";
     $("#map").css("opacity", "0.5");
     $("#map").css("pointer-events", "none");
   };
@@ -61,7 +64,7 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
   var marker = new google.maps.Marker({
     position: latlng,
     title: "Nuestro Matrimonio",
-    label: " Dirección"
+    label: "Babi & Charlie"
   });
 
 
@@ -145,6 +148,66 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
 
     // Add smooth scrolling on all links inside the navbar
     $("#contactanos a").on('click', function (event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+        console.log("header")
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 500, function () {
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  
+  $(document).ready(function () {
+    // Add scrollspy to <body>
+    $('body').scrollspy({
+      target: ".navbar",
+      offset: 50
+    });
+
+    // Add smooth scrolling on all links inside the navbar
+    $("#buttonup a").on('click', function (event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+        console.log("header")
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 500, function () {
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  
+  $(document).ready(function () {
+    // Add scrollspy to <body>
+    $('body').scrollspy({
+      target: ".navbar",
+      offset: 50
+    });
+
+    // Add smooth scrolling on all links inside the navbar
+    $("#header-bar a").on('click', function (event) {
       // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {
         // Prevent default anchor click behavior
