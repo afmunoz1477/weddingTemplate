@@ -5,7 +5,7 @@
  *
  * Main module of the application.
  */
- var app = angular.module('Babie&Charlie', ['ui.router']);
+ var app = angular.module('barbcharlie', ['ui.router']);
 
  app.config(function($stateProvider, $urlRouterProvider) {
      
