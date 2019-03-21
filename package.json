@@ -1,5 +1,5 @@
 {
-    "name": "babi-charlie",
+    "name": "barbcharlie",
     "version": "0.0.0",
     "private": true,
     "author": {
@@ -8,8 +8,7 @@
         "web": ""
     },
     "scripts": {
-        "start": "node ./bin/www",
-        "build": "npm install | cd app | bower install"
+        "start": "node ./bin/www"
     },
     "dependencies": {
         "acl": "^0.4.9",

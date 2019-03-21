@@ -1,7 +1,7 @@
 'use strict';
 
 
-var app = angular.module('Babie&Charlie');
+var app = angular.module('barbcharlie');
 app.controller('homeCtrl', function ($scope, $state, $location, $http) {
   $scope.w3_open = function w3_open() {
     var x = document.getElementById("mySidenav");
