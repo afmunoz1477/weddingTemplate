@@ -2,21 +2,29 @@
 
 
 var app = angular.module('barbcharlie');
-app.controller('homeCtrl', function ($scope, $state, $location, $http) {
-  $scope.w3_open = function w3_open() {
-    var x = document.getElementById("mySidenav");
-    var y = document.getElementById("completePage");
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-      y.style.display = "none";
-    } else {
-      x.className = x.className.replace(" w3-show", "");
-      y.style.display = "block";
-    }
-  };
 
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyAmgJBB1HPOD_JLU_rEYFxSrb81UP3tMcI",
+  authDomain: "babi-charlie.firebaseapp.com",
+  databaseURL: "https://babi-charlie.firebaseio.com",
+  projectId: "babi-charlie",
+  storageBucket: "babi-charlie.appspot.com",
+  messagingSenderId: "638772281277"
+};
+
+app.controller('homeCtrl', function ($scope) {
+
+  firebase.initializeApp(config);
+  $scope.dateCountDown = 0;
+  var db = firebase.database();
   var myIndex = 0;
   carousel();
+  $scope.registration = {
+    asiste: true,
+    email: '',
+    rest: ''
+  }
 
   function carousel() {
     var i;
@@ -32,23 +40,99 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
     setTimeout(carousel, 3000); // Change image every 2 seconds
   }
 
-  //===================================================CONTACTO====================================================
-  $scope.enable = function enable() {
-    document.getElementById("boton").style.display = "none";
-    document.getElementById("botonDisable").style.display = "block";
-    document.getElementById("botonSmall").style.display = "none";
-    document.getElementById("botonDisableSmall").style.display = "block";
-    $("#map").css("opacity", "1");
-    $("#map").css("pointer-events", "inherit");
+  function loadInitialInfo() {
+    db.ref('/').once('value').then(function (snapshot) {
+      countDown(snapshot.val().date);
+    });
   }
 
-  $scope.disable = function disable() {
-    document.getElementById("boton").style.display = "block";
-    document.getElementById("botonDisable").style.display = "none";
-    document.getElementById("botonSmall").style.display = "block";
-    document.getElementById("botonDisableSmall").style.display = "none";
-    $("#map").css("opacity", "0.5");
-    $("#map").css("pointer-events", "none");
+  function countDown(date) {
+    // Set the date we're counting down to
+    var countDownDate = new Date(date).getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+      // Get todays date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("dateIdLarge").style.fontFamily = 'Autery';
+      document.getElementById("dateIdSmall").style.fontFamily = 'Autery';
+      document.getElementById("dateIdLarge").style.fontSize = '200%';
+      document.getElementById("dateIdSmall").style.fontSize = '80%';
+      document.getElementById("dateIdLarge").innerHTML = days + " dias " + hours + " horas " + minutes + " minutos " + seconds + " segundos";
+      document.getElementById("dateIdSmall").innerHTML = days + " dias " + hours + " horas " + minutes + " minutos " + seconds + " segundos";
+
+    }, 1000);
+  }
+  loadInitialInfo();
+
+  //===================================================CONTACTO====================================================
+
+  $scope.rsvpConfirmation = function rsvpConfirmation() {
+    var identifier = $scope.registration.email.replace(/\./g, '');
+    db.ref('white-list/' + identifier).once('value').then(function (snapshot) {
+      if (snapshot.val()) {
+        if(!snapshot.val().check) {
+          db.ref('information/').once('value').then(function (snapshot) {
+            var info = snapshot.val();
+            var counter = snapshot.val().asisten;
+            var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
+            if ($scope.registration.asiste === '1') {
+              db.ref('information/').set({
+                'asisten': counter+1,
+                'rechazo' : counter_rechazos
+              });
+
+              if($scope.registration.rest) {
+                db.ref('/rest').once('value').then(function (snapshot) {
+                  var info_rest = snapshot.val();
+                  db.ref('/rest').set({
+                    'lacteos': $scope.registration.rest == '1' ? info_rest.lacteos+1 : info_rest.lacteos,
+                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano+1 : info_rest.vegetariano,
+                    'vegano': $scope.registration.rest == '3' ? info_rest.vegano+1 : info_rest.vegano,
+                    'mariscos': $scope.registration.rest == '4' ? info_rest.mariscos+1 : info_rest.mariscos,
+                  });
+                });
+              }
+            } else {
+              db.ref('information/').set({
+                'asisten': counter,
+                'rechazos': counter_rechazos+1
+              });
+            }
+          });
+          db.ref('white-list/' + identifier).set({
+            'asiste': $scope.registration.asiste === '1' ? true : false,
+            'check': true
+          });
+        } else {
+        }
+      } else {
+        document.getElementById("ErrorUSer").style.display = 'block';
+      }
+    });
+  }
+
+  $scope.w3_open = function w3_open() {
+    var x = document.getElementById("mySidenav");
+    var y = document.getElementById("completePage");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+      y.style.display = "none";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+      y.style.display = "block";
+    }
   };
 
   /* 
@@ -168,7 +252,7 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
       } // End if
     });
   });
-  
+
   $(document).ready(function () {
     // Add scrollspy to <body>
     $('body').scrollspy({
@@ -198,7 +282,7 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
       } // End if
     });
   });
-  
+
   $(document).ready(function () {
     // Add scrollspy to <body>
     $('body').scrollspy({
@@ -230,7 +314,5 @@ app.controller('homeCtrl', function ($scope, $state, $location, $http) {
   });
 
   //-----------------------------------------------------------------------------------------------------------------------
-
-
 
 })
