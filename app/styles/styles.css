@@ -1,8 +1,6 @@
 #map {
-
     margin: 0;
     padding: 0;
-
 }
 
 /*
@@ -13,19 +11,6 @@
     width: 450px;
     height: 600px;
     margin: auto;
-}
-
-/*
-    Register StyleSheet
-*/
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Signika', sans-serif
 }
 
 body,
@@ -46,19 +31,9 @@ html {
     opacity: 0.4;
 }
 
-.iconos-servicios {
-    width: 60%;
-}
-
-.fontGeneral {
-    font-family: 'Signika', sans-serif;
-    color: white;
-
-}
-
 .autery {
     font-family: 'Autery';
-    src: url('./fonts/Autery.ttf') format('truetype');
+    src: url('./fonts/Autery.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -68,12 +43,6 @@ html {
     src: url('./fonts/IsabellaScript.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-
-.fontGeneralSer {
-    font-family: 'Signika', sans-serif;
-    color: black;
-    font-size: 25px;
 }
 
 .topMenu {
@@ -92,20 +61,29 @@ html {
     text-align: center;
 }
 
-.top-sections {
+.top-tittle-home {
     font-size: 40px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Autery';
     font-weight: 500;
     text-align: center;
-    background-color: rgb(220, 81, 123);
+}
+
+.top-sections {
+    font-size: 60px;
+    font-family: 'Autery', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(220, 81, 123);
+    background-color: white;
 }
 
 .top-sections-small {
     font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Autery', sans-serif;
     font-weight: 500;
     text-align: center;
-    background-color: rgb(220, 81, 123);
+    color: rgb(220, 81, 123);
+    background-color: white;
 }
 
 .but {
@@ -154,8 +132,16 @@ html {
 }
 
 .home-page-image {
+    position: relative;
     margin-top: 1%;
     margin-bottom: 5%;
+}
+
+.absolute {
+    position: absolute;
+    top: 2%;
+    width: 100%;
+    border: 3px solid #73AD21;
 }
 
 .slidesPhoto {
@@ -171,6 +157,20 @@ html {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     margin-top: 2%;
+}
+
+.button-info {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: white
+}
+
+.button-info-small {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: white
 }
 
 .tittle-info-small {
@@ -223,7 +223,7 @@ html {
 .footerFont {
 
     color: white;
-    font-family: 'Signika', sans-serif;
+    font-family: 'Monserrat', sans-serif;
     letter-spacing: 2px;
     font-size: 15px;
 }
@@ -231,7 +231,7 @@ html {
 .footerFontMed {
 
     color: white;
-    font-family: 'Signika', sans-serif;
+    font-family: 'Monserrat', sans-serif;
     letter-spacing: 2px;
     font-size: 10px;
 
@@ -244,7 +244,7 @@ html {
 
 .footerFontS {
     color: white;
-    font-family: 'Signika', sans-serif;
+    font-family: 'Monserrat', sans-serif;
     font-size: 6px;
 
 }
@@ -275,24 +275,4 @@ html {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-
-/* Turn off parallax scrolling for tablets and phones */
-/* @media only screen and (max-device-width: 1024px) {
-    .bgimg-1 {
-        background-attachment: scroll;
-    }
-
-    @media screen and (max-height: 450px) {
-        .sidenav {
-            padding-top: 15px;
-        }
-
-        .sidenav a {
-            font-size: 18px;
-        }
-    } */
-
-
 }
