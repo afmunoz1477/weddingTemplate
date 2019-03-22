@@ -934,9 +934,12 @@
                                         <form class="w3-container" ng-submit="rsvpConfirmation()">
                                             <div class="w3-block">
 
-                                                <div class="w3-button w3-block w3-panel w3-red w3-opacity-min w3-round-large" id="ErrorUSer" style="display: none" onclick="this.style.display = 'none'">
+                                                <div class="w3-button w3-block w3-panel w3-red w3-opacity-min w3-round-large"
+                                                    id="ErrorUSer" style="display: none"
+                                                    onclick="this.style.display = 'none'">
                                                     <p style="font-size:100%; color:white; font-family: 'Montserrat'">
-                                                        Ingresa un correo electrónico correcto porfavor, no apareces en nuestra lista de invitados <br>
+                                                        Ingresa un correo electrónico correcto porfavor, no apareces en
+                                                        nuestra lista de invitados <br>
                                                         <i style="color:white; font-family: 'Montserrat'">OK</i>
                                                     </p>
                                                 </div>
@@ -978,7 +981,69 @@
                                                 <button class="w3-btn-block fontGeneral w3-block w3-round-large"
                                                     type="submit" style="background-color:rgb(220, 81, 123);">
                                                     <b class="button-info w3-hide-small">Register</b>
-                                                    <b class="button-info-small w3-hide-medium w3-hide-large">Register</b>
+                                                    <b
+                                                        class="button-info-small w3-hide-medium w3-hide-large">Register</b>
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="w3-row w3-white w3-card-4 w3-hide-large w3-hide-medium w3-round-xlarge"
+                                    style="width:90%; margin-left:5%">
+                                    <div class="w3-block" style="margin-top:5%">
+                                        <form class="w3-container" ng-submit="rsvpConfirmation()">
+                                            <div class="w3-block">
+
+                                                <div class="w3-button w3-block w3-panel w3-red w3-opacity-min w3-round-large"
+                                                    id="ErrorUSer" style="display: none"
+                                                    onclick="this.style.display = 'none'">
+                                                    <p style="font-size:100%; color:white; font-family: 'Montserrat'">
+                                                        Ingresa un correo electrónico correcto porfavor, no apareces en
+                                                        nuestra lista de invitados <br>
+                                                        <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                    </p>
+                                                </div>
+
+                                                <label class="tittle-info-small"><b>E-mail</b><b
+                                                        class="w3-text-red">*</b></label>
+                                                <input
+                                                    class="w3-input w3-left w3-text-grey w3-border w3-margin-bottom  w3-round-jumbo"
+                                                    type="email" placeholder="Ingresa tu correo electrónico"
+                                                    name="email" ng-model="registration.email" required>
+                                            </div>
+                                            <div class="w3-block">
+                                                <label class="tittle-info-small"><b>¿Asistirás?</b><b
+                                                        class="w3-text-red">*</b></label>
+                                                <select
+                                                    class="w3-select w3-left w3-text-grey w3-border w3-margin-bottom  w3-round-jumbo"
+                                                    name="asistencia" ng-model="registration.asiste">
+                                                    <option value="" selected disabled>¡Animate!</option>
+                                                    <option value="1">Claro que si</option>
+                                                    <option value="0">No Los Puedo Acompañar</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="w3-block">
+                                                <label class="tittle-info-small"><b>¿Alguna restricción con alimentos?</b><b
+                                                        class="w3-text-red">*</b></label>
+                                                <select
+                                                    class="w3-select w3-left w3-text-grey w3-border w3-margin-bottom  w3-round-jumbo"
+                                                    name="restriccion" ng-model="registration.rest">
+                                                    <option value="0" selected disabled></option>
+                                                    <option value="1">Intolerante a la lactosa</option>
+                                                    <option value="2">Vegetarian@</option>
+                                                    <option value="3">Vegano</option>
+                                                    <option value="4">Alergia a los mariscos</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="w3-block" style="margin-bottom:5%; margin-top: 8%">
+                                                <button class="w3-btn-block fontGeneral w3-block w3-round-large"
+                                                    type="submit" style="background-color:rgb(220, 81, 123);">
+                                                    <b class="button-info w3-hide-small">Register</b>
+                                                    <b
+                                                        class="button-info-small w3-hide-medium w3-hide-large">Register</b>
                                                 </button>
                                             </div>
 
@@ -986,12 +1051,6 @@
                                     </div>
                                 </div>
 
-                                <div class="w3-row w3-white w3-card-4 w3-hide-large w3-hide-medium w3-round-xlarge"
-                                    style="width:90%; margin-left:5%">
-                                    <div class="w3-block" style="margin-top:5%">
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
