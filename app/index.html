@@ -938,9 +938,29 @@
                                                     id="ErrorUSer" style="display: none"
                                                     onclick="this.style.display = 'none'">
                                                     <p style="font-size:100%; color:white; font-family: 'Montserrat'">
-                                                        Ingresa un correo electrónico correcto porfavor, no apareces en
+                                                        Ingresa un e-mail correcto porfavor, no apareces en
                                                         nuestra lista de invitados <br>
                                                         <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                    </p>
+                                                </div>
+                                                
+                                                <div class="w3-button w3-block w3-panel w3-orange w3-opacity-min w3-round-large"
+                                                    id="UserChecked" style="display: none"
+                                                    onclick="this.style.display = 'none'">
+                                                    <p style="font-size:100%; color:white; font-family: 'Montserrat'">
+                                                        Ya hemos recibido respuesta de este e-mail <br>
+                                                        <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                    </p>
+                                                </div>
+
+                                                <div class="w3-button w3-block w3-panel w3-green w3-opacity-min w3-round-large"
+                                                    id="Success" style="display: none"
+                                                    onclick="this.style.display = 'none'">
+                                                    <p style="font-size:100%; color:white; font-family: 'Montserrat'">
+                                                        ¡Hemos registrado tu información! <br>
+                                                        <a href="#init">
+                                                            <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                        </a>
                                                     </p>
                                                 </div>
 
@@ -969,7 +989,7 @@
                                                 <select
                                                     class="w3-select w3-left w3-text-grey w3-border w3-margin-bottom  w3-round-jumbo"
                                                     name="restriccion" ng-model="registration.rest">
-                                                    <option value="0" selected disabled></option>
+                                                    <option value="0" selected>No tengo restricciones</option>
                                                     <option value="1">Intolerante a la lactosa</option>
                                                     <option value="2">Vegetarian@</option>
                                                     <option value="3">Vegano</option>
@@ -989,19 +1009,40 @@
                                         </form>
                                     </div>
                                 </div>
+                                
                                 <div class="w3-row w3-white w3-card-4 w3-hide-large w3-hide-medium w3-round-xlarge"
                                     style="width:90%; margin-left:5%">
                                     <div class="w3-block" style="margin-top:5%">
-                                        <form class="w3-container" ng-submit="rsvpConfirmation()">
+                                        <form class="w3-container" ng-submit="rsvpConfirmationSmall()">
                                             <div class="w3-block">
 
                                                 <div class="w3-button w3-block w3-panel w3-red w3-opacity-min w3-round-large"
-                                                    id="ErrorUSer" style="display: none"
+                                                    id="ErrorUSerSmall" style="display: none"
                                                     onclick="this.style.display = 'none'">
                                                     <p style="font-size:100%; color:white; font-family: 'Montserrat'">
-                                                        Ingresa un correo electrónico correcto porfavor, no apareces en
+                                                        Ingresa un e-mail correcto porfavor, no apareces en
                                                         nuestra lista de invitados <br>
                                                         <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                    </p>
+                                                </div>
+                                                
+                                                <div class="w3-button w3-block w3-panel w3-orange w3-opacity-min w3-round-large"
+                                                    id="UserCheckedSmall" style="display: none"
+                                                    onclick="this.style.display = 'none'">
+                                                    <p style="font-size:100%; color:white; font-family: 'Montserrat'">
+                                                        Ya hemos recibido respuesta de este e-mail <br>
+                                                        <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                    </p>
+                                                </div>
+                                                
+                                                <div class="w3-button w3-block w3-panel w3-green w3-opacity-min w3-round-large"
+                                                    id="SuccessSmall" style="display: none"
+                                                    onclick="this.style.display = 'none'">
+                                                    <p style="font-size:100%; color:white; font-family: 'Montserrat'">
+                                                        ¡Hemos registrado tu información! <br>
+                                                        <a href="#init">
+                                                            <i style="color:white; font-family: 'Montserrat'">OK</i>
+                                                        </a>
                                                     </p>
                                                 </div>
 
@@ -1030,7 +1071,7 @@
                                                 <select
                                                     class="w3-select w3-left w3-text-grey w3-border w3-margin-bottom  w3-round-jumbo"
                                                     name="restriccion" ng-model="registration.rest">
-                                                    <option value="0" selected disabled></option>
+                                                    <option value="0" selected>No tengo restricciones</option>
                                                     <option value="1">Intolerante a la lactosa</option>
                                                     <option value="2">Vegetarian@</option>
                                                     <option value="3">Vegano</option>
