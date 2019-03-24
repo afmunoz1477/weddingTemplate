@@ -82,32 +82,35 @@ app.controller('homeCtrl', function ($scope) {
     var identifier = $scope.registration.email.replace(/\./g, '');
     db.ref('white-list/' + identifier).once('value').then(function (snapshot) {
       if (snapshot.val()) {
-        if(!snapshot.val().check) {
+        if (!snapshot.val().check) {
           db.ref('information/').once('value').then(function (snapshot) {
-            var info = snapshot.val();
             var counter = snapshot.val().asisten;
             var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
             if ($scope.registration.asiste === '1') {
               db.ref('information/').set({
-                'asisten': counter+1,
-                'rechazo' : counter_rechazos
+                'asisten': counter + 1,
+                'rechazo': counter_rechazos
               });
 
-              if($scope.registration.rest) {
+              if ($scope.registration.rest) {
                 db.ref('/rest').once('value').then(function (snapshot) {
                   var info_rest = snapshot.val();
                   db.ref('/rest').set({
-                    'lacteos': $scope.registration.rest == '1' ? info_rest.lacteos+1 : info_rest.lacteos,
-                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano+1 : info_rest.vegetariano,
-                    'vegano': $scope.registration.rest == '3' ? info_rest.vegano+1 : info_rest.vegano,
-                    'mariscos': $scope.registration.rest == '4' ? info_rest.mariscos+1 : info_rest.mariscos,
-                  });
+                    'no': $scope.registration.rest == '0' ? info_rest.no + 1 : info_rest.no,
+                    'lacteos': $scope.registration.rest == '1' ? info_rest.lacteos + 1 : info_rest.lacteos,
+                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano,
+                    'vegano': $scope.registration.rest == '3' ? info_rest.vegano + 1 : info_rest.vegano,
+                    'mariscos': $scope.registration.rest == '4' ? info_rest.mariscos + 1 : info_rest.mariscos,
+                  }).then(() => {
+                    document.getElementById("Success").style.display = 'block';
+                  })
+
                 });
               }
             } else {
               db.ref('information/').set({
                 'asisten': counter,
-                'rechazos': counter_rechazos+1
+                'rechazos': counter_rechazos + 1
               });
             }
           });
@@ -116,9 +119,59 @@ app.controller('homeCtrl', function ($scope) {
             'check': true
           });
         } else {
+          document.getElementById("UserChecked").style.display = 'block';
         }
       } else {
         document.getElementById("ErrorUSer").style.display = 'block';
+      }
+    });
+  }
+  
+  $scope.rsvpConfirmationSmall = function rsvpConfirmationSmall() {
+    var identifier = $scope.registration.email.replace(/\./g, '');
+    db.ref('white-list/' + identifier).once('value').then(function (snapshot) {
+      if (snapshot.val()) {
+        if (!snapshot.val().check) {
+          db.ref('information/').once('value').then(function (snapshot) {
+            var counter = snapshot.val().asisten;
+            var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
+            if ($scope.registration.asiste === '1') {
+              db.ref('information/').set({
+                'asisten': counter + 1,
+                'rechazo': counter_rechazos
+              });
+
+              if ($scope.registration.rest) {
+                db.ref('/rest').once('value').then(function (snapshot) {
+                  var info_rest = snapshot.val();
+                  db.ref('/rest').set({
+                    'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
+                    'lacteos': $scope.registration.rest == '1' ? info_rest.lacteos + 1 : info_rest.lacteos,
+                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano,
+                    'vegano': $scope.registration.rest == '3' ? info_rest.vegano + 1 : info_rest.vegano,
+                    'mariscos': $scope.registration.rest == '4' ? info_rest.mariscos + 1 : info_rest.mariscos,
+                  }).then(() => {
+                    document.getElementById("SuccessSmall").style.display = 'block';
+                  })
+
+                });
+              }
+            } else {
+              db.ref('information/').set({
+                'asisten': counter,
+                'rechazos': counter_rechazos + 1
+              });
+            }
+          });
+          db.ref('white-list/' + identifier).set({
+            'asiste': $scope.registration.asiste === '1' ? true : false,
+            'check': true
+          });
+        } else {
+          document.getElementById("UserCheckedSmall").style.display = 'block';
+        }
+      } else {
+        document.getElementById("ErrorUSerSmall").style.display = 'block';
       }
     });
   }
