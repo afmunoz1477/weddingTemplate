@@ -97,10 +97,7 @@ app.controller('homeCtrl', function ($scope) {
                   var info_rest = snapshot.val();
                   db.ref('/rest').set({
                     'no': $scope.registration.rest == '0' ? info_rest.no + 1 : info_rest.no,
-                    'lacteos': $scope.registration.rest == '1' ? info_rest.lacteos + 1 : info_rest.lacteos,
                     'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano,
-                    'vegano': $scope.registration.rest == '3' ? info_rest.vegano + 1 : info_rest.vegano,
-                    'mariscos': $scope.registration.rest == '4' ? info_rest.mariscos + 1 : info_rest.mariscos,
                   }).then(() => {
                     document.getElementById("Success").style.display = 'block';
                   })
@@ -146,10 +143,7 @@ app.controller('homeCtrl', function ($scope) {
                   var info_rest = snapshot.val();
                   db.ref('/rest').set({
                     'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
-                    'lacteos': $scope.registration.rest == '1' ? info_rest.lacteos + 1 : info_rest.lacteos,
-                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano,
-                    'vegano': $scope.registration.rest == '3' ? info_rest.vegano + 1 : info_rest.vegano,
-                    'mariscos': $scope.registration.rest == '4' ? info_rest.mariscos + 1 : info_rest.mariscos,
+                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
                   }).then(() => {
                     document.getElementById("SuccessSmall").style.display = 'block';
                   })
@@ -237,7 +231,7 @@ app.controller('homeCtrl', function ($scope) {
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
-        }, 500, function () {
+        }, 600, function () {
 
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
@@ -267,7 +261,36 @@ app.controller('homeCtrl', function ($scope) {
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
-        }, 500, function () {
+        }, 600, function () {
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  
+  $(document).ready(function () {
+    // Add scrollspy to <body>
+    $('body').scrollspy({
+      target: ".slidea",
+      offset: 50
+    });
+
+    // Add smooth scrolling on all links inside the navbar
+    $("#header-top a").on('click', function (event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 600, function () {
 
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
@@ -289,7 +312,6 @@ app.controller('homeCtrl', function ($scope) {
       if (this.hash !== "") {
         // Prevent default anchor click behavior
         event.preventDefault();
-        console.log("header")
         // Store hash
         var hash = this.hash;
 
@@ -297,7 +319,7 @@ app.controller('homeCtrl', function ($scope) {
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
-        }, 500, function () {
+        }, 600, function () {
 
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
@@ -319,7 +341,6 @@ app.controller('homeCtrl', function ($scope) {
       if (this.hash !== "") {
         // Prevent default anchor click behavior
         event.preventDefault();
-        console.log("header")
         // Store hash
         var hash = this.hash;
 
@@ -327,7 +348,7 @@ app.controller('homeCtrl', function ($scope) {
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
-        }, 500, function () {
+        }, 600, function () {
 
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
@@ -349,7 +370,6 @@ app.controller('homeCtrl', function ($scope) {
       if (this.hash !== "") {
         // Prevent default anchor click behavior
         event.preventDefault();
-        console.log("header")
         // Store hash
         var hash = this.hash;
 
@@ -357,7 +377,7 @@ app.controller('homeCtrl', function ($scope) {
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
-        }, 500, function () {
+        }, 600, function () {
 
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
