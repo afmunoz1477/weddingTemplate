@@ -91,12 +91,11 @@ app.controller('homeCtrl', function ($scope) {
                 'asisten': counter + 1,
                 'rechazo': counter_rechazos
               });
-
               if ($scope.registration.rest) {
                 db.ref('/rest').once('value').then(function (snapshot) {
                   var info_rest = snapshot.val();
                   db.ref('/rest').set({
-                    'no': $scope.registration.rest == '0' ? info_rest.no + 1 : info_rest.no,
+                    'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
                     'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
                   }).then(() => {
                     document.getElementById("Success").style.display = 'block';
