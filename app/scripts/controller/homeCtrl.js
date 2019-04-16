@@ -97,7 +97,7 @@ app.controller('homeCtrl', function ($scope) {
                   var info_rest = snapshot.val();
                   db.ref('/rest').set({
                     'no': $scope.registration.rest == '0' ? info_rest.no + 1 : info_rest.no,
-                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano,
+                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
                   }).then(() => {
                     document.getElementById("Success").style.display = 'block';
                   })
