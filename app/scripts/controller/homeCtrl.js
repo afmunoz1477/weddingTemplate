@@ -112,43 +112,53 @@ app.controller('homeCtrl', function ($scope) {
           });
           db.ref('white-list/' + identifier).set({
             'asiste': $scope.registration.asiste === '1' ? true : false,
-            'check': true
+            'check': true,
+            'restrinccion_ninguna': $scope.registration.rest == '0' ? true : false,
+            'restrinccion_vegetariano': $scope.registration.rest == '2' ? true : false
           });
         } else {
           document.getElementById("UserChecked").style.display = 'block';
         }
       } else {
-        db.ref('out-white-list/' + identifier).set({
-          'asiste': $scope.registration.asiste === '1' ? true : false,
-          'check': true
-        }).then((snap) => {
-          db.ref('out-information/').once('value').then(function (snapshot) {
-            var counter = snapshot.val().asisten;
-            var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
-            if ($scope.registration.asiste === '1') {
-              db.ref('out-information/').set({
-                'asisten': counter + 1,
-                'rechazo': counter_rechazos
-              });
-              if ($scope.registration.rest) {
-                db.ref('/out-rest').once('value').then(function (snapshot) {
-                  var info_rest = snapshot.val();
-                  db.ref('/out-rest').set({
-                    'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
-                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
-                  }).then(() => {
-                    document.getElementById("Success").style.display = 'block';
-                  })
+        db.ref('out-white-list/' + identifier).once('value').then(function (snapshot) {
+          if (!snapshot.val()) {
+            db.ref('out-white-list/' + identifier).set({
+              'asiste': $scope.registration.asiste === '1' ? true : false,
+              'check': true.registration,
+              'restrinccion_ninguna': $scope.registration.rest == '0' ? true : false,
+              'restrinccion_vegetariano': $scope.registration.rest == '2' ? true : false
+            }).then((snap) => {
+              db.ref('out-information/').once('value').then(function (snapshot) {
+                var counter = snapshot.val().asisten;
+                var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
+                if ($scope.registration.asiste === '1') {
+                  db.ref('out-information/').set({
+                    'asisten': counter + 1,
+                    'rechazo': counter_rechazos
+                  });
+                  if ($scope.registration.rest) {
+                    db.ref('/out-rest').once('value').then(function (snapshot) {
+                      var info_rest = snapshot.val();
+                      db.ref('/out-rest').set({
+                        'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
+                        'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
+                      }).then(() => {
+                        document.getElementById("Success").style.display = 'block';
+                      })
 
-                });
-              }
-            } else {
-              db.ref('out-information/').set({
-                'asisten': counter,
-                'rechazos': counter_rechazos + 1
+                    });
+                  }
+                } else {
+                  db.ref('out-information/').set({
+                    'asisten': counter,
+                    'rechazos': counter_rechazos + 1
+                  });
+                }
               });
-            }
-          });
+            });
+          } else {
+            document.getElementById("UserChecked").style.display = 'block';
+          }
         });
       }
     });
@@ -189,43 +199,53 @@ app.controller('homeCtrl', function ($scope) {
           });
           db.ref('white-list/' + identifier).set({
             'asiste': $scope.registration.asiste === '1' ? true : false,
-            'check': true
+            'check': true,
+            'restrinccion_ninguna': $scope.registration.rest == '0' ? true : false,
+            'restrinccion_vegetariano': $scope.registration.rest == '2' ? true : false
           });
         } else {
           document.getElementById("UserCheckedSmall").style.display = 'block';
         }
       } else {
-        db.ref('out-white-list/' + identifier).set({
-          'asiste': $scope.registration.asiste === '1' ? true : false,
-          'check': true
-        }).then((snap) => {
-          db.ref('out-information/').once('value').then(function (snapshot) {
-            var counter = snapshot.val().asisten;
-            var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
-            if ($scope.registration.asiste === '1') {
-              db.ref('out-information/').set({
-                'asisten': counter + 1,
-                'rechazo': counter_rechazos
-              });
-              if ($scope.registration.rest) {
-                db.ref('/out-rest').once('value').then(function (snapshot) {
-                  var info_rest = snapshot.val();
-                  db.ref('/out-rest').set({
-                    'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
-                    'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
-                  }).then(() => {
-                    document.getElementById("SuccessSmall").style.display = 'block';
-                  })
+        db.ref('out-white-list/' + identifier).once('value').then(function (snapshot) {
+          if (!snapshot.val()) {
+            db.ref('out-white-list/' + identifier).set({
+              'asiste': $scope.registration.asiste === '1' ? true : false,
+              'check': true,
+              'restrinccion_ninguna': $scope.registration.rest == '0' ? true : false,
+              'restrinccion_vegetariano': $scope.registration.rest == '2' ? true : false
+            }).then((snap) => {
+              db.ref('out-information/').once('value').then(function (snapshot) {
+                var counter = snapshot.val().asisten;
+                var counter_rechazos = snapshot.val().rechazos ? snapshot.val().rechazos : 0;
+                if ($scope.registration.asiste === '1') {
+                  db.ref('out-information/').set({
+                    'asisten': counter + 1,
+                    'rechazo': counter_rechazos
+                  });
+                  if ($scope.registration.rest) {
+                    db.ref('/out-rest').once('value').then(function (snapshot) {
+                      var info_rest = snapshot.val();
+                      db.ref('/out-rest').set({
+                        'ninguna': $scope.registration.rest == '0' ? info_rest.ninguna + 1 : info_rest.ninguna,
+                        'vegetariano': $scope.registration.rest == '2' ? info_rest.vegetariano + 1 : info_rest.vegetariano
+                      }).then(() => {
+                        document.getElementById("SuccessSmall").style.display = 'block';
+                      })
 
-                });
-              }
-            } else {
-              db.ref('out-information/').set({
-                'asisten': counter,
-                'rechazos': counter_rechazos + 1
+                    });
+                  }
+                } else {
+                  db.ref('out-information/').set({
+                    'asisten': counter,
+                    'rechazos': counter_rechazos + 1
+                  });
+                }
               });
-            }
-          });
+            });
+          } else {
+            document.getElementById("UserCheckedSmall").style.display = 'block';
+          }
         });
       }
     });
